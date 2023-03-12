@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {StorageService} from "../storage.service";
 
 @Component({
   selector: 'app-home',
@@ -32,9 +33,10 @@ export class HomePage {
     }
   ]
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private storage: StorageService) {}
 
-  async navigateToAnswer(menuName: string) {
+  navigateToAnswer(menuName: string) {
     const quiz = [];
     switch (menuName) {
       case 'Adição':
@@ -88,7 +90,8 @@ export class HomePage {
         quiz.push(this.generate('/', 9, true));
         break;
     }
-    await this.router.navigate(['/answer', {quiz: JSON.stringify(quiz)}]);
+    this.storage.quiz = quiz;
+    this.router.navigate(['/answer']);
   }
 
   generate(operator: string, index: number, even?: boolean) {

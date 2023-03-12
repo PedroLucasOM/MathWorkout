@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {StorageService} from "../storage.service";
 
 @Component({
   selector: 'app-answer',
@@ -8,7 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class AnswerPage implements OnInit {
 
-  quiz = [];
+  quiz: any[] = [];
   score: string[] = [];
   current = {
     title: undefined,
@@ -24,10 +25,11 @@ export class AnswerPage implements OnInit {
   scoreTotal = 0;
 
   constructor(private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private storage: StorageService) { }
 
   ngOnInit() {
-    this.quiz = JSON.parse(<string>this.route.snapshot.paramMap.get('quiz'));
+    this.quiz = this.storage.quiz;
     this.current = this.quiz[0];
     this.currentIndex = 0;
     this.scoreTotal = 0;

@@ -1,5 +1,5 @@
 {
-	"appId": "io.ionic.starter",
+	"appId": "app.mathworkout",
 	"appName": "MathWorkout",
 	"webDir": "www",
 	"bundledWebRuntime": false
