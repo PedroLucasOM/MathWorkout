@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {StorageService} from "../storage.service";
 
@@ -7,7 +7,7 @@ import {StorageService} from "../storage.service";
   templateUrl: './answer.page.html',
   styleUrls: ['./answer.page.scss'],
 })
-export class AnswerPage implements OnInit {
+export class AnswerPage {
 
   quiz: any[] = [];
   score: string[] = [];
@@ -28,7 +28,7 @@ export class AnswerPage implements OnInit {
               private route: ActivatedRoute,
               private storage: StorageService) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.quiz = this.storage.quiz;
     this.current = this.quiz[0];
     this.currentIndex = 0;
