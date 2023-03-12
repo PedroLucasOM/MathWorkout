@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="header">
+    Math Workout
+  </div>
+  <div class="content">
+    <div *ngFor="let menu of menus">
+      <ion-button expand="block" (click)="navigateToAnswer(menu.name)">{{menu.name}}</ion-button>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <ion-icon name="heart"></ion-icon>
+  <div class="block"></div>
+  <ion-icon name="share-social"></ion-icon>
+</div>

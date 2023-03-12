@@ -1,0 +1,33 @@
+.container {
+  width: 80vw;
+  margin: 5vh auto;
+  color: #3171e0;
+}
+
+.header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 35px;
+  margin-bottom: 15vh;
+}
+
+.content ion-button{
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  left: 0;
+  color: #3171e0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  width: 40vw;
+}

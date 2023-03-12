@@ -1,0 +1,54 @@
+<div class="header-screen">
+  <ion-icon name="arrow-back-outline" (click)="navigateBack()"></ion-icon>
+  <ion-text>{{current?.title}}</ion-text>
+</div>
+<div class="score">
+  <span *ngFor="let item of score">
+    <ion-icon *ngIf="item === 'correct'" class="correct" name="checkmark-circle"></ion-icon>
+    <ion-icon *ngIf="item === 'wrong'" class="wrong" name="close-circle"></ion-icon>
+  </span>
+</div>
+<div class="content">
+  <div class="text-area">
+    <div *ngIf="currentIndex < quiz.length" class="number">{{current?.number1}}</div>
+    <div *ngIf="currentIndex < quiz.length" class="operator">{{current?.operator}}</div>
+    <div *ngIf="currentIndex < quiz.length" class="number">{{current?.number2}}</div>
+    <span *ngIf="currentIndex >= quiz.length">Score</span>
+  </div>
+  <div class="text-area">
+    <div *ngIf="currentIndex < quiz.length" class="result">{{selectedNumbers}}</div>
+    <span *ngIf="currentIndex >= quiz.length">{{scoreTotal}}</span>
+  </div>
+</div>
+<div class="keyboard">
+  <ion-grid>
+    <ion-row>
+      <ion-col><ion-button (click)="addNumber(1)">1</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(2)">2</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(3)">3</ion-button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-button (click)="addNumber(4)">4</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(5)">5</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(6)">6</ion-button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><ion-button (click)="addNumber(7)">7</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(8)">8</ion-button></ion-col>
+      <ion-col><ion-button (click)="addNumber(9)">9</ion-button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" (click)="clear()">
+          <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col><ion-button (click)="addNumber(0)">0</ion-button></ion-col>
+      <ion-col>
+        <ion-button color="success" (click)="confirm()">
+          <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
